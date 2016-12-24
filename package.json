@@ -1,0 +1,26 @@
+{
+  "name": "3d-carousel",
+  "version": "1.0.0",
+  "description": "The 3d carousel shuffling\r ## 3d旋转木马轮播图",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strongfanfan/3D-carousel.git"
+  },
+  "author": "strongfanfan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strongfanfan/3D-carousel/issues"
+  },
+  "homepage": "https://github.com/strongfanfan/3D-carousel#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0"
+  }
+}
