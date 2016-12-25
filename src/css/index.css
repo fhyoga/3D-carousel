@@ -9,6 +9,7 @@
 .wrap{
     transform-style: preserve-3d;
     position: relative;
+    transition: transform 2s;
 }
 .figure{
     position: absolute;
@@ -20,4 +21,18 @@
     width: 240px;
     height: 240px;
     border: 2px solid cyan;
+}
+.nav{
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+.controller{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: aqua;
+    margin-left: 10px;
+    border-radius: 50%;
 }
