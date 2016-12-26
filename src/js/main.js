@@ -7,7 +7,7 @@
         angle = 360 / count,
         distance = op.width / 2 / Math.tan(angle / 2 / 180 * Math.PI) + 50,
         centerNum = 0,
-        transformAngle=0;
+        transformAngle=0,
         prefixs = ["Moz", "O", "Ms", "Webkit", ""];
     function init() {
         for (var i = 0, j = figureNode.length; i < j; i++) {
