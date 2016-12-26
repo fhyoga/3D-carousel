@@ -3,16 +3,16 @@
         wrapNode = document.getElementsByClassName('wrap')[0],
         controllerNode = document.getElementsByClassName('controller'),
         count = op.count,
-        median = Math.floor((count + 1) / 2),
+        median = Math.floor((count + 1) / 2)-1,
         angle = 360 / count,
         distance = op.width / 2 / Math.tan(angle / 2 / 180 * Math.PI) + 50,
         centerNum = 0,
         transformAngle=0;
         prefixs = ["Moz", "O", "Ms", "Webkit", ""];
-
     function init() {
         for (var i = 0, j = figureNode.length; i < j; i++) {
             figureNode[i].tabIndex = i;
+            controllerNode[i].tabIndex=i;
             (function () {
                 prefixs.forEach(function (value) {
                     figureNode[i].style[value + 'transform'] = 'rotateY(' + angle * i + 'deg) translateZ(' + distance + 'px)';
@@ -22,6 +22,12 @@
             figureNode[i].addEventListener('click', function () {
                 render(centerNum, this.tabIndex);
                 centerNum=this.tabIndex;
+                controlerCheck()
+            });
+            controllerNode[i].addEventListener('click',function () {
+                render(centerNum,this.tabIndex);
+                centerNum=this.tabIndex;
+                controlerCheck()
             })
         }
     }
@@ -37,31 +43,29 @@
         if (center <= median) {
             if (tabIndex >= center && tabIndex - center <= median) {
                 addTransformPrefix(wrapNode, (tabIndex - center) * angle * -1+transformAngle)
-                console.log('1',center,tabIndex,median)
             } else if (tabIndex > center) {
                 addTransformPrefix(wrapNode, (count + center - tabIndex) * angle+transformAngle)
-                console.log('2',center,tabIndex,median)
 
             } else {
                 addTransformPrefix(wrapNode, (center - tabIndex) * angle+transformAngle)
-                console.log('3',center,tabIndex,median)
-
             }
         } else {
             if (tabIndex >= center) {
-                addTransformPrefix(wrapNode, (tabIndex - center) * angle+transformAngle)
-                console.log('4',center,tabIndex,median)
+                addTransformPrefix(wrapNode, (tabIndex - center) * angle*-1+transformAngle)
 
             } else if (tabIndex < center && center - tabIndex > median) {
                 addTransformPrefix(wrapNode, (count + tabIndex - center) * angle * -1+transformAngle)
-                console.log('5',center,tabIndex,median)
 
             } else {
                 addTransformPrefix(wrapNode, (center - tabIndex) * angle+transformAngle)
-                console.log('6',center,tabIndex,median)
-
             }
         }
+    }
+    function controlerCheck() {
+        for (var i=0,j=controllerNode.length;i<j;i++){
+            controllerNode[i].className="controller"
+        }
+        controllerNode[centerNum].className='controller checked'
     }
     init();
 
