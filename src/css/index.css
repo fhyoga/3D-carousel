@@ -1,17 +1,17 @@
-.stage,.wrap{
+.stage-carousel,.wrap-carousel{
     width: 100%;
     height: 600px;
 }
-.stage{
+.stage-carousel{
     perspective: 3000px;
     background-color: antiquewhite;
 }
-.wrap{
+.wrap-carousel{
     transform-style: preserve-3d;
     position: relative;
     transition: transform 2s;
 }
-.figure{
+.wrap-carousel>.figure-carousel{
     position: absolute;
     margin: auto;
     left: 0;
@@ -19,15 +19,16 @@
     right: 0;
     bottom: 0;
     width: 200px;
-    height: 200px;
+    height: 300px;
+    opacity: .9;
 }
-.nav{
+.nav-carousel{
     position: absolute;
     bottom: 30px;
     text-align: center;
     width: 100%;
 }
-.controller{
+.nav-carousel>.controller{
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -36,6 +37,6 @@
     margin-left: 10px;
     border-radius: 50%;
 }
-.checked{
+.nav-carousel>.checked{
     background-color: antiquewhite;
 }

@@ -1,18 +1,22 @@
 (function () {
-    var figureNode = document.getElementsByClassName('figure'),
-        wrapNode = document.getElementsByClassName('wrap')[0],
-        controllerNode = document.getElementsByClassName('controller'),
-        count = op.count,
+    var figureNode = document.getElementsByClassName('figure-carousel'),
+        wrapNode = document.getElementsByClassName('wrap-carousel')[0],
+        navNode=document.getElementsByClassName('nav-carousel')[0],
+        controllerNode=[],
+        count = carousel.count,
         median = Math.floor((count + 1) / 2)-1,
         angle = 360 / count,
-        distance = op.width / 2 / Math.tan(angle / 2 / 180 * Math.PI) + 50,
+        distance = carousel.width / 2 / Math.tan(angle / 2 / 180 * Math.PI) + 50,
         centerNum = 0,
         transformAngle=0,
         prefixs = ["Moz", "O", "Ms", "Webkit", ""];
     function init() {
         for (var i = 0, j = figureNode.length; i < j; i++) {
             figureNode[i].tabIndex = i;
+            controllerNode[i]=document.createElement('span');
+            navNode.appendChild(controllerNode[i]);
             controllerNode[i].tabIndex=i;
+            controllerNode[i].className='controller';
             (function () {
                 prefixs.forEach(function (value) {
                     figureNode[i].style[value + 'transform'] = 'rotateY(' + angle * i + 'deg) translateZ(' + distance + 'px)';
@@ -68,54 +72,6 @@
         controllerNode[centerNum].className='controller checked'
     }
     init();
-
-
-    // console.log(distance);
-    //
-    // function Fig(node, index) {
-    //     this.domNode = node;
-    //     this.tabIndex = index;
-    //     this.wrapRotateAngle = 0;
-    //     this.init()
-    // }
-    //
-    // Fig.prototype.init = function () {
-    //     var tabIndex = this.tabIndex,
-    //         domNode = this.domNode;
-    //     if (tabIndex < centerNum) {
-    //         this.wrapRotateAngle = -1 * this.tabIndex * angle
-    //     } else {
-    //         this.wrapRotateAngle = (count - this.tabIndex) * angle
-    //     }
-    //
-    //     prefixs.forEach(function (value) {
-    //         domNode.style[value + 'transform'] = 'rotateY(' + tabIndex * angle + 'deg) translateZ(' + distance + 'px)';
-    //     })
-    // };
-    // Fig.prototype.transform = function () {
-    //     var wrapRotateAngle = this.wrapRotateAngle;
-    //     prefixs.forEach(function (value) {
-    //         wrapNode.style[value + 'transform'] = 'rotateY(' + wrapRotateAngle + 'deg)'
-    //     })
-    // };
-    // function Nav() {
-    //     this.domNode = node;
-    //     this.tabIndex = index;
-    //     this.wrapRotateAngle = 0;
-    //     this.init()
-    // }
-    // for (var i = 0, j = figureNode.length; i < j; i++) {
-    //     (function () {
-    //         var item=i;
-    //         figs[item] = new Fig(figureNode[i], i);
-    //         figs[item].domNode.addEventListener('click',function () {
-    //             figs[item].transform();
-    //         });
-    //         controllerNode[item].addEventListener('click',function () {
-    //             figs[item].transform();
-    //         })
-    //     })(i)
-    // }
 
 
 })();
