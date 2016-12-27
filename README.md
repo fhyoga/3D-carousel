@@ -2,8 +2,11 @@
 The 3d carousel shuffling
 ## 3d旋转木马轮播图
 * ### [Demo](http://www.strongfanfan.top/3D-carousel/demo)
+
 * ### 兼容ie9+的浏览器
+
 * ### 已封装好，无变量污染
+
 * ### 使用方法
     1. HTML目录结构
      
