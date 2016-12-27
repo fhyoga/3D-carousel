@@ -17,7 +17,7 @@ gulp.task('styles', function() {
     gulp.src(['./src/css/*.css'])
         .pipe(concat('styles.css'))
         .pipe(autoprefix('last 2 versions'))
-        .pipe(minifyCSS())
+        // .pipe(minifyCSS())
         .pipe(gulp.dest('./dist/styles/'));
 });
 
